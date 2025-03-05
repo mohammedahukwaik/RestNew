@@ -1,0 +1,88 @@
+﻿@model RestNew.Areas.Admin.ViewModels.RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout1";
+}
+
+
+
+<div class="card mb-3">
+    <div class="card-body">
+
+    <div class="pt-4 pb-2">
+      <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+      <p class="text-center small">Enter your personal details to create account</p>
+    </div>
+
+    <form asp-action="Register" class="row g-3 needs-validation">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-12">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" autofocus type="text" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="col-12  position-relative">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" id="password" class="form-control">
+            <i class="bi bi-eye-slash position-absolute top-50 end-0 pe-3" id="togglePassword" style="cursor: pointer;"></i>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="col-12  position-relative">
+            <label asp-for="ConfirmPassword" class="form-label"></label>
+            <input asp-for="ConfirmPassword" id="confirmpassword" class="form-control">
+            <i class="bi bi-eye-slash position-absolute top-50 end-0 pe-3" id="toggleConfirmPassword" style="cursor: pointer;"></i>
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+            <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+            <div class="invalid-feedback">You must agree before submitting.</div>
+          </div>
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary w-100" type="submit">Create Account</button>
+        </div>
+        <div class="col-12">
+          <p class="small mb-0">Already have an account? <a asp-action="Login">Log in</a></p>
+        </div>
+     </form>
+
+    </div>
+</div>
+
+
+
+<script>
+    let togglePassword = document.getElementById("togglePassword");
+    let password = document.getElementById("password");
+
+    togglePassword.onclick = function(){
+        if(password.type == "password"){
+            password.type = "text";
+            togglePassword.className = "bi bi-eye position-absolute top-50 end-0 pe-3";
+        }else{
+            password.type = "password";
+            togglePassword.className = "bi bi-eye-slash position-absolute top-50 end-0 pe-3";
+        }
+    }
+</script>
+
+<script>
+    let toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+    let confirmpassword = document.getElementById("confirmpassword");
+
+    toggleConfirmPassword.onclick = function(){
+        if(confirmpassword.type == "password"){
+            confirmpassword.type = "text";
+            toggleConfirmPassword.className = "bi bi-eye position-absolute top-50 end-0 pe-3";
+        }else{
+            confirmpassword.type = "password";
+            toggleConfirmPassword.className = "bi bi-eye-slash position-absolute top-50 end-0 pe-3";
+        }
+    }
+</script>

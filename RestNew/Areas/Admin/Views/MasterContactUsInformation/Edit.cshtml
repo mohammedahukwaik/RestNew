@@ -1,0 +1,66 @@
+﻿@model RestNew.ViewModels.MasterContactUsInformationModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="pagetitle">
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="MasterContactUsInformation">ContactUs Information</a></li>
+            <li class="breadcrumb-item active">Edit</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-11">
+        <div class="card">
+            <div class="card-body mt-4">
+                <!-- Multi Columns Form -->
+                <form asp-action="Edit" class="row g-3" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input type="hidden" asp-for="MasterContactUsInformationId" />
+                    <input type="hidden" asp-for="IsActive" />
+                    <input type="hidden" asp-for="IsDelete" />
+                    <input type="hidden" asp-for="CreateId" />
+                    <input type="hidden" asp-for="CreateDate" />
+
+                    <div class="form-group col-md-6">
+                        <label asp-for="MasterContactUsInformationIdesc" class="control-label"></label>
+                        <input autofocus asp-for="MasterContactUsInformationIdesc" class="form-control" />
+                        <span asp-validation-for="MasterContactUsInformationIdesc" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="MasterContactUsInformationImageUrl" class="control-label"></label>
+                        <input asp-for="MasterContactUsInformationImageUrl" class="form-control" />
+                        <span asp-validation-for="MasterContactUsInformationImageUrl" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="MasterContactUsInformationRedirect" class="control-label"></label>
+                        <input asp-for="MasterContactUsInformationRedirect" class="form-control" />
+                        <span asp-validation-for="MasterContactUsInformationRedirect" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="MasterContactUsInformationImageUrl" />
+                    <div class="form-group col-md-6">
+                        <label asp-for="ContactUsFile" class="control-label"></label>
+                        <input asp-for="ContactUsFile" class="form-control" />
+                        <span asp-validation-for="ContactUsFile" class="text-danger"></span>
+                    </div>
+                    <div class="form-group text-end mt-3" style="direction:rtl;">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-light-secondary">Back to List</a>
+                    </div>
+                </form>
+                <!-- End Multi Columns Form -->
+
+            </div>
+        </div>
+    </div>
+</div>
